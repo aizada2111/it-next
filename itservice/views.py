@@ -183,6 +183,7 @@ def it_contact(request):
     if request.method == 'POST':
         form = FeedbackForm(request.POST)
         if form.is_valid():
+            data = form.save()
             return redirect('contact')
     else:
         form = FeedbackForm()
