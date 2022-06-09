@@ -84,25 +84,27 @@
               <h4>GET IN TOUCH</h4>
               <p>Our goal is to provide the best customer service and to answer all of your questions in a timely manner.</p>
               <div class="form_section">
-                <form class="form_contant" action="index.html">
+                <form class="form_contant" action="" method="post">
+                  {% csrf_token %}
+
                   <fieldset>
                   <div class="row">
                     <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                      <input class="field_custom" placeholder="Websire URL" type="text" required />
+                      {{ form_for_temp.website url }}
                     </div>
                     <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                      <input class="field_custom" placeholder="Your name" type="text" required />
+                      {{ form_for_temp.your_name }}
                     </div>
                     <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                      <input class="field_custom" placeholder="Email adress" type="email" required />
+                      {{ form_for_temp.email_address }}
                     </div>
                     <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                      <input class="field_custom" placeholder="Phone number" type="text" required />
+                      {{ form_for_temp.phone_number }}
                     </div>
                     <div class="field col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                      <textarea class="field_custom" placeholder="Messager" required ></textarea>
+                      {{ form_for_temp.message }}
                     </div>
-                    <div class="center"><a class="btn main_bt" href="#">SUBMIT NOW</a></div>
+                    <div class="center"><button type="submit"><a class="btn main_bt" >SUBMIT NOW</a></div>
                   </div>
                   </fieldset>
                 </form>

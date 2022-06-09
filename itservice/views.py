@@ -1,9 +1,9 @@
-from django.shortcuts import render
-from .models import *
-
+from django.shortcuts import render, redirect
+from .models import Feedback, Product
+from .forms import FeedbackForm
 
 #CRUD
-#---------------------READ(viev)----------------------
+#---------------------READ(view)----------------------
 def index(request):
     return render(
         request,
@@ -46,10 +46,10 @@ def it_cart(request):
         'itservice/it_cart.html'
     )
 
-def it_checout(request):
+def it_checkout(request):
     return render(
         request,
-        'itservice/it_checout.html'
+        'itservice/it_checkout.html'
     )
 
 def it_computer_repair(request):
@@ -178,5 +178,17 @@ def make_appointment(request):
         'itservice/make_appointment.html'
     )
 
+#---------------------CREATE(view)----------------------
+def it_contact(request):
+    if request.method == 'POST':
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            return redirect('contact')
+    else:
+        form = FeedbackForm()
+    context = {
+        'form_for_temp' : form
+    }
+    return render(request, template_name='itservice/it_contact.html', context=context)
 
 
