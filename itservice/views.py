@@ -184,7 +184,7 @@ def it_contact(request):
         form = FeedbackForm(request.POST)
         if form.is_valid():
             data = form.save()
-            return redirect('contact')
+            return redirect('it_contact')
     else:
         form = FeedbackForm()
     context = {

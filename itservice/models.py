@@ -96,7 +96,7 @@ class Testimonial(models.Model):
     def __str__(self):
         return self.name
 
-class Feedback(models.Model):
+class Contact(models.Model):
     website_url = models.URLField(
         max_length=200,
         blank=True,

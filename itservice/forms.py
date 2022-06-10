@@ -1,9 +1,9 @@
 from django import forms
-from .models import Feedback
+from .models import Contact
 
 class FeedbackForm(forms.ModelForm):
     class Meta:
-        model = Feedback
+        model = Contact
         fields = ['website_url', 'your_name', 'email_address', 'phone_number', 'message']
         widgets = {
             'website_url': forms.TextInput(attrs={'class': 'form-group', 'placeholder': 'Website url'}),
